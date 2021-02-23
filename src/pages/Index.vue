@@ -20,22 +20,30 @@
     <div class="container">
       <div class="row">
         <div class="col-lg-8 col-md-10 mx-auto">
-          <div class="post-preview">
+          <div class="post-preview" v-for="edge in $page.posts.edges" :key="edge.node.id">
             <a href="post.html">
               <h2 class="post-title">
-                Man must explore, and this is exploration at its greatest
+                {{ edge.node.title }}
               </h2>
-              <h3 class="post-subtitle">
+              <!-- <h3 class="post-subtitle">
                 Problems look mighty small from 150 miles up
-              </h3>
+              </h3> -->
             </a>
             <p class="post-meta">
               Posted by
-              <a href="#">Start Bootstrap</a>
-              on September 24, 2019
+              <a href="#">{{ edge.node.user.username }}</a>
+              on {{ edge.node.created_at }}
             </p>
+            <p>
+              <span v-for="tag in edge.node.tags" :key="tag.id">
+                <a href="">{{ tag.title }}</a>
+                &nbsp;&nbsp;
+              </span>
+              
+            </p>
+            <hr />
           </div>
-          <hr />
+          <!-- <hr />
           <div class="post-preview">
             <a href="post.html">
               <h2 class="post-title">
@@ -79,7 +87,7 @@
               on July 8, 2019
             </p>
           </div>
-          <hr />
+          <hr /> -->
           <!-- Pager -->
           <div class="clearfix">
             <a class="btn btn-primary float-right" href="#"
@@ -92,6 +100,28 @@
 
   </Layout>
 </template>
+
+<page-query>
+query {
+  posts: allStrapiPost {
+    edges {
+      node {
+        id
+        title
+        user {
+          id
+          username
+        }
+        tags {
+          id
+          title
+        }
+        created_at
+      }
+    }
+  }
+}
+</page-query>
 
 <script>
 export default {
