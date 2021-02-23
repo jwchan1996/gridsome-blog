@@ -86,14 +86,15 @@
               <a href="#">Start Bootstrap</a>
               on July 8, 2019
             </p>
-          </div>
-          <hr /> -->
+          </div> -->
+          <hr />
           <!-- Pager -->
-          <div class="clearfix">
+          <!-- <div class="clearfix">
             <a class="btn btn-primary float-right" href="#"
               >Older Posts &rarr;</a
             >
-          </div>
+          </div> -->
+          <pager :info="$page.posts.pageInfo" />
         </div>
       </div>
     </div>
@@ -102,8 +103,12 @@
 </template>
 
 <page-query>
-query {
-  posts: allStrapiPost {
+query ($page: Int) {
+  posts: allStrapiPost (perPage: 2, page: $page) @paginate {
+    pageInfo {
+      totalPages
+      currentPage
+    }
     edges {
       node {
         id
@@ -124,10 +129,15 @@ query {
 </page-query>
 
 <script>
+import { Pager } from 'gridsome'
+
 export default {
   metaInfo: {
     title: "Hello, world!",
   },
+  components: {
+    Pager
+  }
 };
 </script>
 
