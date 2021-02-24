@@ -12,6 +12,7 @@
     "@gridsome/source-strapi": "^0.2.0",
     "@gridsome/transformer-remark": "^0.6.4",
     "bootstrap": "^4.6.0",
-    "gridsome": "^0.7.0"
+    "gridsome": "^0.7.0",
+    "markdown-it": "^12.0.4"
   }
 }
