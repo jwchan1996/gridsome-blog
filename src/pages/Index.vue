@@ -36,7 +36,7 @@
             </p>
             <p>
               <span v-for="tag in edge.node.tags" :key="tag.id">
-                <a href="">{{ tag.title }}</a>
+                <g-link :to="'/tag/' + tag.id">{{ tag.title }}</g-link>
                 &nbsp;&nbsp;
               </span>
               
