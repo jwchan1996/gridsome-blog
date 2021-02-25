@@ -20,16 +20,16 @@
         <div class="collapse navbar-collapse" id="navbarResponsive">
           <ul class="navbar-nav ml-auto">
             <li class="nav-item">
-              <a class="nav-link" href="index.html">Home</a>
+              <g-link class="nav-link" to="/">Home</g-link>
             </li>
             <li class="nav-item">
-              <a class="nav-link" href="about.html">About</a>
+              <g-link class="nav-link" to="/about">About</g-link>
             </li>
             <li class="nav-item">
-              <a class="nav-link" href="post.html">Sample Post</a>
+              <g-link class="nav-link" to="/post/1">Sample Post</g-link>
             </li>
             <li class="nav-item">
-              <a class="nav-link" href="contact.html">Contact</a>
+              <g-link class="nav-link" to="/concact">Contact</g-link>
             </li>
           </ul>
         </div>
