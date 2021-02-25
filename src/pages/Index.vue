@@ -2,14 +2,14 @@
   <Layout>
 
     <!-- Page Header -->
-    <header class="masthead" style="background-image: url('/img/home-bg.jpg')">
+    <header class="masthead" :style="{ backgroundImage: `url(http://localhost:1337${$page.general.edges[0].node.cover.url})` }">
       <div class="overlay"></div>
       <div class="container">
         <div class="row">
           <div class="col-lg-8 col-md-10 mx-auto">
             <div class="site-heading">
-              <h1>Clean Blog</h1>
-              <span class="subheading">A Blog Theme by Start Bootstrap</span>
+              <h1>{{ $page.general.edges[0].node.title }}</h1>
+              <span class="subheading">{{ $page.general.edges[0].node.subtitle }}</span>
             </div>
           </div>
         </div>
@@ -122,6 +122,19 @@ query ($page: Int) {
           title
         }
         created_at
+      }
+    }
+  }
+
+  general: allStrapiGeneral {
+    edges {
+      node {
+        id
+        title
+        subtitle
+        cover {
+          url
+        }
       }
     }
   }

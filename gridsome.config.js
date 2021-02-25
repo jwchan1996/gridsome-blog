@@ -21,8 +21,10 @@ module.exports = {
       options: {
         apiURL: 'http://localhost:1337',
         queryLimit: 1000, // Defaults to 100
+        // 获取集合
         contentTypes: ['post', 'tag'],
-        // singleTypes: ['impressum'],
+        // 获取单个节点
+        singleTypes: ['general'],
         // Possibility to login with a Strapi user,
         // when content types are not publicly available (optional)
         // loginData: {
