@@ -84,7 +84,7 @@ export default {
       try {
         const { data } = await axios({
           method: 'POST',
-          url: 'http://localhost:1337/concacts',
+          url: `${GRIDSOME_API_URL}/concacts`,
           data: this.form
         })
         console.log(data)

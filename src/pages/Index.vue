@@ -2,7 +2,7 @@
   <Layout>
 
     <!-- Page Header -->
-    <header class="masthead" :style="{ backgroundImage: `url(http://localhost:1337${$page.general.edges[0].node.cover.url})` }">
+    <header class="masthead" :style="{ backgroundImage: `url(${GRIDSOME_API_URL}${$page.general.edges[0].node.cover.url})` }">
       <div class="overlay"></div>
       <div class="container">
         <div class="row">
